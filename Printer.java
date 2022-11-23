@@ -1,11 +1,10 @@
-import java.io.PrintStream;
 import java.io.*;
+import java.io.PrintStream;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 
+
 class Printer {
-
-
     public void write(int[][] input, int[][] result) {
         try {
             String filename = "history.txt";
@@ -32,25 +31,20 @@ class Printer {
             e.printStackTrace();
         }
     }
-
-
-
+    
 
     public void print(PrintStream printer, int[][] output) {
         int SIZE = 9;
         if (output != null) {
             for (int i = 0; i < SIZE; i++) {
                 for (int j = 0; j < SIZE; j++) {
-                    if (output[i][j] == 0)
-                        printer.print(" * ");
-                    else
-                        printer.print(" " + output[i][j] + " ");
-                    if ((j + 1) % (SIZE / 3) == 0)
-                        printer.print("|");
+                    if (output[i][j] == 0) printer.print(" * ");
+                    else printer.print(" " + output[i][j] + " ");
+                    
+                    if ((j + 1) % (SIZE / 3) == 0) printer.print("|");
                 }
                 printer.println();
-                if ((i + 1) % (SIZE / 3) == 0)
-                    printer.println("------------------------------");
+                if ((i + 1) % (SIZE / 3) == 0) printer.println("------------------------------");
             }
         }
         else {
